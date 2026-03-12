@@ -1,13 +1,19 @@
+import java.util.*;
+
 public class BookMyStayApp {
+
+    static HashMap<String,Integer> rooms = new HashMap<>();
 
     public static void main(String[] args) {
 
-        System.out.println("WELCOME TO BOOK MY STAY");
+        rooms.put("Single",5);
 
-        System.out.println("Available Room Types");
-        System.out.println("Single Room : 5");
-        System.out.println("Double Room : 3");
-        System.out.println("Suite Room  : 2");
+        System.out.println("Cancelling booking for Single Room");
+
+        rooms.put("Single", rooms.get("Single")+1);
+
+        System.out.println("Room added back to inventory");
+        System.out.println("Available Single Rooms: " + rooms.get("Single"));
 
     }
 }
