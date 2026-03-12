@@ -1,8 +1,9 @@
-import java.util.HashMap;
+import java.util.*;
 
 public class BookMyStayApp {
 
     static HashMap<String,Integer> rooms = new HashMap<>();
+    static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
 
@@ -10,11 +11,16 @@ public class BookMyStayApp {
         rooms.put("Double",3);
         rooms.put("Suite",2);
 
-        System.out.println("Room Inventory");
+        System.out.print("Enter room type to search: ");
+        String type = sc.nextLine();
 
-        for(String room: rooms.keySet())
+        if(rooms.containsKey(type))
         {
-            System.out.println(room + " : " + rooms.get(room));
+            System.out.println("Available rooms: " + rooms.get(type));
+        }
+        else
+        {
+            System.out.println("Room type not available");
         }
 
     }
