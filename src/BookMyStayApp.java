@@ -4,32 +4,16 @@ public class BookMyStayApp {
 
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
+        ArrayList<String> history = new ArrayList<>();
 
-        System.out.println("Add-On Services");
-        System.out.println("1. Breakfast");
-        System.out.println("2. Airport Pickup");
-        System.out.println("3. Extra Bed");
+        history.add("Ravi booked Single Room");
+        history.add("Arun booked Double Room");
 
-        System.out.print("Choose service: ");
-        int choice = sc.nextInt();
+        System.out.println("Booking History");
 
-        switch(choice)
+        for(String h : history)
         {
-            case 1:
-                System.out.println("Breakfast added");
-                break;
-
-            case 2:
-                System.out.println("Airport pickup added");
-                break;
-
-            case 3:
-                System.out.println("Extra bed added");
-                break;
-
-            default:
-                System.out.println("Invalid choice");
+            System.out.println(h);
         }
     }
 }
