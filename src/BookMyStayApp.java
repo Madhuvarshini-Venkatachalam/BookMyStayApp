@@ -11,19 +11,17 @@ public class BookMyStayApp {
         rooms.put("Double",3);
         rooms.put("Suite",2);
 
-        System.out.print("Enter your name: ");
-        String name = sc.nextLine();
-
         System.out.print("Enter room type: ");
         String type = sc.nextLine();
 
-        if(rooms.containsKey(type))
+        if(rooms.containsKey(type) && rooms.get(type) > 0)
         {
-            System.out.println("Booking request received for " + name);
+            rooms.put(type, rooms.get(type)-1);
+            System.out.println("Room booked successfully");
         }
         else
         {
-            System.out.println("Invalid room type");
+            System.out.println("Room not available");
         }
 
     }
