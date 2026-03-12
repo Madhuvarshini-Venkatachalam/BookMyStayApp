@@ -2,21 +2,18 @@ import java.util.*;
 
 public class BookMyStayApp {
 
+    static HashMap<String,Integer> rooms = new HashMap<>();
+
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
+        rooms.put("Single",5);
 
-        System.out.print("Enter number of rooms: ");
+        System.out.println("Cancelling booking for Single Room");
 
-        try
-        {
-            int rooms = sc.nextInt();
-            System.out.println("Rooms requested: " + rooms);
-        }
-        catch(Exception e)
-        {
-            System.out.println("Invalid input. Please enter number.");
-        }
+        rooms.put("Single", rooms.get("Single")+1);
+
+        System.out.println("Room added back to inventory");
+        System.out.println("Available Single Rooms: " + rooms.get("Single"));
 
     }
 }
