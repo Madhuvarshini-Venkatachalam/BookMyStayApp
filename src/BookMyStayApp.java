@@ -1,19 +1,26 @@
-import java.util.*;
-
 public class BookMyStayApp {
 
-    static HashMap<String,Integer> rooms = new HashMap<>();
+    static int rooms = 1;
 
     public static void main(String[] args) {
 
-        rooms.put("Single",5);
+        Thread user1 = new Thread(() -> bookRoom());
+        Thread user2 = new Thread(() -> bookRoom());
 
-        System.out.println("Cancelling booking for Single Room");
+        user1.start();
+        user2.start();
+    }
 
-        rooms.put("Single", rooms.get("Single")+1);
-
-        System.out.println("Room added back to inventory");
-        System.out.println("Available Single Rooms: " + rooms.get("Single"));
-
+    public synchronized static void bookRoom()
+    {
+        if(rooms > 0)
+        {
+            System.out.println(Thread.currentThread().getName()+" booked room");
+            rooms--;
+        }
+        else
+        {
+            System.out.println("No rooms available");
+        }
     }
 }
