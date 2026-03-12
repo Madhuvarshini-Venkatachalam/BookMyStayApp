@@ -2,27 +2,34 @@ import java.util.*;
 
 public class BookMyStayApp {
 
-    static HashMap<String,Integer> rooms = new HashMap<>();
-    static Scanner sc = new Scanner(System.in);
-
     public static void main(String[] args) {
 
-        rooms.put("Single",5);
-        rooms.put("Double",3);
-        rooms.put("Suite",2);
+        Scanner sc = new Scanner(System.in);
 
-        System.out.print("Enter room type: ");
-        String type = sc.nextLine();
+        System.out.println("Add-On Services");
+        System.out.println("1. Breakfast");
+        System.out.println("2. Airport Pickup");
+        System.out.println("3. Extra Bed");
 
-        if(rooms.containsKey(type) && rooms.get(type) > 0)
+        System.out.print("Choose service: ");
+        int choice = sc.nextInt();
+
+        switch(choice)
         {
-            rooms.put(type, rooms.get(type)-1);
-            System.out.println("Room booked successfully");
-        }
-        else
-        {
-            System.out.println("Room not available");
-        }
+            case 1:
+                System.out.println("Breakfast added");
+                break;
 
+            case 2:
+                System.out.println("Airport pickup added");
+                break;
+
+            case 3:
+                System.out.println("Extra bed added");
+                break;
+
+            default:
+                System.out.println("Invalid choice");
+        }
     }
 }
