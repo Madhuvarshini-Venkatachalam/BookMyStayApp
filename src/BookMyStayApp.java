@@ -1,26 +1,24 @@
-public class BookMyStayApp {
+import java.io.*;
 
-    static int rooms = 1;
+public class BookMyStayApp {
 
     public static void main(String[] args) {
 
-        Thread user1 = new Thread(() -> bookRoom());
-        Thread user2 = new Thread(() -> bookRoom());
-
-        user1.start();
-        user2.start();
-    }
-
-    public synchronized static void bookRoom()
-    {
-        if(rooms > 0)
+        try
         {
-            System.out.println(Thread.currentThread().getName()+" booked room");
-            rooms--;
+            FileWriter writer = new FileWriter("booking.txt");
+
+            writer.write("Ravi booked Single Room");
+
+            writer.close();
+
+            System.out.println("Booking saved to file");
+
         }
-        else
+        catch(Exception e)
         {
-            System.out.println("No rooms available");
+            System.out.println("Error saving booking");
         }
+
     }
 }
