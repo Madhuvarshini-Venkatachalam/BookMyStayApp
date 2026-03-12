@@ -4,16 +4,19 @@ public class BookMyStayApp {
 
     public static void main(String[] args) {
 
-        ArrayList<String> history = new ArrayList<>();
+        Scanner sc = new Scanner(System.in);
 
-        history.add("Ravi booked Single Room");
-        history.add("Arun booked Double Room");
+        System.out.print("Enter number of rooms: ");
 
-        System.out.println("Booking History");
-
-        for(String h : history)
+        try
         {
-            System.out.println(h);
+            int rooms = sc.nextInt();
+            System.out.println("Rooms requested: " + rooms);
         }
+        catch(Exception e)
+        {
+            System.out.println("Invalid input. Please enter number.");
+        }
+
     }
 }
